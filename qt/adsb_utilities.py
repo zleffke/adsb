@@ -37,9 +37,14 @@ class gs(object):
 class aircraft(object):
     def __init__(self, icao):
         self.icao       = icao
+        self.lat        = None
+        self.lon        = None
+        self.alt        = None
         self.range      = None
         self.az         = None
         self.el         = None
+        self.speed      = None
+        self.track      = None
         self.first_seen = date.utcnow()
         self.last_seen  = self.first_seen
         self.since      = 0
@@ -48,19 +53,22 @@ class aircraft(object):
         self.pos_valid  = False # Boolean. Flag to indicate valid position
 
     def add_msg(self, msg, gs):
+        self.since = (date.utcnow() - self.last_seen).total_seconds()
         self.last_seen = date.utcnow()
         if msg.tx_type == 3:
+            self.lat = msg.lat
+            self.lon = msg.lon
+            self.alt = msg.alt
             [msg.range, msg.az, msg.el] = RAZEL(gs.lat, gs.lon, gs.alt, msg.lat, msg.lon, msg.alt*0.0003048)
             [self.range, self.az, self.el] = [msg.range, msg.az, msg.el]
             self.pos_valid = True
+        if msg.ground_speed != None: self.speed = msg.ground_speed
+        if msg.track        != None: self.track = msg.track
+        if msg.alt          != None: self.alt = msg.alt
         self.msgs.append(msg)
 
 class sbs1_msg(object):
     def __init__(self, msg):
-        #print msg
-        #self.gs_lat         = options.gs_lat
-        #self.gs_lon         = options.gs_lon
-        #self.gs_alt         = options.gs_alt
         self.range          = None # Range from GS to Target, km
         self.az             = None # Azimuth from GS to Target, deg
         self.el             = None # Elevation from GS to target, deg
@@ -76,7 +84,7 @@ class sbs1_msg(object):
         self.logged_date    = None # String. Date the message was logged.
         self.logged_time    = None # String. Time the message was logged.
         self.callsign       = None # String. Eight character flight ID or callsign.
-        self.altitude       = None # Integer. Mode C Altitude relative to 1013 mb (29.92" Hg).
+        self.alt            = None # Integer. Mode C Altitude relative to 1013 mb (29.92" Hg).
         self.ground_speed   = None # Integer. Speed over ground.
         self.track          = None # Integer. Ground track angle.
         self.lat            = None # Float. Latitude.

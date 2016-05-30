@@ -18,8 +18,8 @@ class main_widget(QtGui.QWidget):
     def initUI(self):
         self.grid = QtGui.QGridLayout()
         self.setLayout(self.grid)
-        self.grid.setColumnStretch(0,2)
-        self.grid.setColumnStretch(1,2)
+        #self.grid.setColumnStretch(0,1)
+        #self.grid.setColumnStretch(1,1)
 
 class adsb_gui(QtGui.QMainWindow):
     def __init__(self, lock):
@@ -32,7 +32,7 @@ class adsb_gui(QtGui.QMainWindow):
         self.main_window = main_widget()
 
         self.callback    = None   #Callback accessor for tracking control
-        self.update_rate = 250    #Feedback Query Auto Update Interval in milliseconds
+        self.update_rate = 500    #Feedback Query Auto Update Interval in milliseconds
         self.lock = lock
         self.current = []
         self.expired = []
@@ -70,10 +70,12 @@ class adsb_gui(QtGui.QMainWindow):
         #self.callback.Print_Data()
         #Print_ADSB_Data(current, expired)
 
-        self.Print_Data()
+        #self.Print_Data()
         #print len(self.current)
-        statusmsg = ("| Current Count: %3i |" % self.cur_cnt)
+        statusmsg = ("| Current Count: %3i | Expired Count: %3i |" % (self.cur_cnt, self.exp_cnt))
         self.statusBar().showMessage(statusmsg)
+
+        self.current_table.updateTable(self.current)
         #self.lock.release()
 
     def Print_Data(self):
@@ -98,7 +100,7 @@ class adsb_gui(QtGui.QMainWindow):
     def initCurrentTable(self):
         #create Current list table
         self.current_table=adsb_table(self.main_window)
-        self.main_window.grid.addWidget(self.current_table, 0,0,5,1)
+        self.main_window.grid.addWidget(self.current_table, 0,0,1,1)
 
     def initMainWindow(self):
         self.setCentralWidget(self.main_window)
