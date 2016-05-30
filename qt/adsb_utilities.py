@@ -14,20 +14,19 @@ c       = float(299792458)  #[m/s], speed of light
 R_e     = 6378.137 				#Earth Radius, in kilometers
 e_e     = 0.081819221456	    #Eccentricity of Earth
 
-def Print_Data(al, ol):
-    os.system('clear')
-    print "Current Aircraft Count: %i" % len(al)
-    print "#\tICAO\tRange [km/mi]\tmsgs"
-    for i in range(len(al)):
-        al[i].since = (date.utcnow() - al[i].last_seen).total_seconds()
-        if al[i].range != None:
-            print "%i\t%s\t%3.1f / %3.1f\t%i\t%3.1f" % (i+1, al[i].icao, al[i].range, al[i].range*0.621371, len(al[i].msgs), al[i].since)
-        else:
-            print "%i\t%s\t%3.1f\t\t%i\t%3.1f" % (i+1, al[i].icao, 0, len(al[i].msgs), al[i].since)
+def Print_ADSB_Data(cur, exp):
+        os.system('clear')
+        print "Current Aircraft Count: %i" % len(cur)
+        print "#\tICAO\tRange [km/mi]\tmsgs"
+        for i in range(len(cur)):
+            cur[i].since = (date.utcnow() - cur[i].last_seen).total_seconds()
+            if cur[i].range != None:
+                print "%i\t%s\t%3.1f / %3.1f\t%i\t%3.1f" % (i+1, cur[i].icao, cur[i].range, cur[i].range*0.621371, len(cur[i].msgs), cur[i].since)
+            else:
+                print "%i\t%s\t%3.1f\t\t%i\t%3.1f" % (i+1, cur[i].icao, 0, len(cur[i].msgs), cur[i].since)
 
-    print "\n"
-    print "Expired Count:", len(ol)
-
+        print "\n"
+        print "Expired Count:", len(exp)
 
 class gs(object):
     def __init__(self, lat, lon, alt):
@@ -46,16 +45,18 @@ class aircraft(object):
         self.since      = 0
         self.msg_count  = None
         self.msgs       = []    #list of messages
+        self.pos_valid  = False # Boolean. Flag to indicate valid position
 
     def add_msg(self, msg, gs):
         self.last_seen = date.utcnow()
         if msg.tx_type == 3:
             [msg.range, msg.az, msg.el] = RAZEL(gs.lat, gs.lon, gs.alt, msg.lat, msg.lon, msg.alt*0.0003048)
             [self.range, self.az, self.el] = [msg.range, msg.az, msg.el]
+            self.pos_valid = True
         self.msgs.append(msg)
 
 class sbs1_msg(object):
-    def __init__(self, msg, options):
+    def __init__(self, msg):
         #print msg
         #self.gs_lat         = options.gs_lat
         #self.gs_lon         = options.gs_lon
@@ -127,19 +128,6 @@ class sbs1_msg(object):
     #    if (self.tx_type == 3):
     #        [self.range, self.az, self.el] = RAZEL(self.gs_lat, self.gs_lon, self.gs_alt, self.lat, self.lon, self.alt* 0.0003048)
     #        print "%s\t%2.6f\t%2.6f\t%5i\t%3.1f\t%3.1f\t%2.1f" % (self.hex_ident ,self.lat, self.lon, self.alt, self.range, self.az, self.el)
-
-#--Socket Functions---
-def readlines(sock, recv_buffer=4096, delim='\n'):
-	buffer = ''
-	data = True
-	while data:
-		data = sock.recv(recv_buffer)
-		buffer += data
-
-		while buffer.find(delim) != -1:
-			line, buffer = buffer.split('\n', 1)
-			yield line
-	return
 
 #--Range Calculations Functions------
 def LLH_To_ECEF(lat, lon, h):
