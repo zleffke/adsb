@@ -1,0 +1,29 @@
+{
+    "thread_enable":{
+        "adsb_server":true,
+        "radio":true
+    },
+    "main":{
+        "name":"adsb",
+        "log":{
+            "path":"/log/adsb",
+            "verbose":true,
+            "level":"DEBUG"
+        }
+    },
+    "geolocation":{
+        "latitude":0.0,
+        "longitude":0.0,
+        "altitude":0.0
+    },
+    "data_server":{
+        "thread_name":"ADSB_Thread",
+        "name":"adsb",
+        "ip":"192.168.20.138",
+        "rx_port":30003,
+        "log":{
+            "verbose":true,
+            "level":"DEBUG"
+        }
+    }
+}
