@@ -5,7 +5,7 @@
 # Version: 1.0                          #
 #    Date: May 29, 2016                 #
 #  Author: Zach Leffke, KJ4QLP          #
-# Comment: Connects to dump1090 30003   # 
+# Comment: Connects to dump1090 30003   #
 #########################################
 
 import socket
@@ -41,19 +41,27 @@ class Data_Server(threading.Thread):
                 self.current[len(self.current)-1].add_msg(msg, self.gs)
             else:
                 idx = -1
-                for i in range(len(self.current)): 
-                    if msg.hex_ident == self.current[i].icao: 
+                for i in range(len(self.current)):
+                    if msg.hex_ident == self.current[i].icao:
                         idx = i
                         break
 
                 if idx != -1:
-                    self.current[i].add_msg(msg, self.gs)
+                    try:
+                        self.current[i].add_msg(msg, self.gs)
+                    except Exception as e:
+                        print l
+                        print (e)
                 else:
-                    self.current.append(aircraft(msg.hex_ident))
-                    self.current[len(self.current)-1].add_msg(msg, self.gs)
+                    try:
+                        self.current.append(aircraft(msg.hex_ident))
+                        self.current[len(self.current)-1].add_msg(msg, self.gs)
+                    except Exception as e:
+                        print l
+                        print (e)
 
             for i in range(len(self.current)):
-                if self.current[i].since > self.expire: 
+                if self.current[i].since > self.expire:
                     self.expired.append(self.current.pop(i))
                     break
 
@@ -117,4 +125,3 @@ class Data_Server(threading.Thread):
 
     def stopped(self):
         return self._stop.isSet()
-

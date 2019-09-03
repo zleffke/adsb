@@ -13,14 +13,20 @@ class adsb_table(QtGui.QTableWidget):
 
     def initUI(self):
         self.setColumnCount(9)
-        
         self.setHorizontalHeaderLabels(["ICAO", "Altitude [ft]", "Speed [kt]", "Track [deg]", "Range [km/mi]", "Az [deg]", "El [deg]", "msgs", "Seen"])
-        self.horizontalHeader().setStyleSheet('font-size: 6pt; font-weight: bold')# font-family: Courier;')
+        #self.horizontalHeader().setStyleSheet('font-size: 8pt; font-weight: bold')# font-family: Courier;')
+        # for idx in range(self.columnCount()):
+        #     item = self.horizontalHeaderItem(idx)
+        #     print item
+        #     item.setBackground(QtGui.QColor(255, 0, 0))
+        #     self.setHorizontalHeaderItem(idx,item)
+        # #self.hor.setStyleSheet('font-size: 8pt;  background-color:rgb(0,0,0); color:rgb(255,0,0)')# font-family: Courier;')
 
-        self.setStyleSheet('font-size: 6pt')#; font-family: Courier;')
+        #self.setStyleSheet('font-size: 8pt')#; font-family: Courier;')
+        self.setStyleSheet('font-size: 8pt; background-color:rgb(0,0,0); color:rgb(255,0,0)')#; font-family: Courier;')
         self.resizeRowsToContents()
         self.resizeColumnsToContents()
-        
+
     def add_msg(self, aircraft):
         #newitem = QtGui.QTableWidgetItem(item)
         #self.setItem(m, n, newitem)
@@ -56,16 +62,16 @@ class adsb_table(QtGui.QTableWidget):
         el = QtGui.QTableWidgetItem()
         if (aircraft.pos_valid):
             rho.setText("%3.2f / %3.2f"% (aircraft.range, aircraft.range*0.621371))
-            az.setText("%3.1f"%aircraft.az) 
+            az.setText("%3.1f"%aircraft.az)
             el.setText("%3.1f"%aircraft.el)
-        else:                       
+        else:
             rho.setText('')
             az.setText('')
             el.setText('')
         self.setItem(rowPosition, 4, rho)
         self.setItem(rowPosition, 5, az)
         self.setItem(rowPosition, 6, el)
-        
+
         #Message Count
         msgs = QtGui.QTableWidgetItem(("%i"%len(aircraft.msgs)))
         self.setItem(rowPosition, 7, msgs)
@@ -78,8 +84,15 @@ class adsb_table(QtGui.QTableWidget):
         self.resizeColumnsToContents()
 
     def updateTable(self, current):
-        current.sort(key=lambda aircraft:aircraft.range, reverse=True)
+        current.sort(key=lambda aircraft:aircraft.el, reverse=True)
         self.setRowCount(0)
         #self.setColumnCount(0)
         for a in current:
             self.add_msg(a)
+
+    def darken(self):
+        palette = Qt.QPalette()
+        palette.setColor(Qt.QPalette.Background,QtCore.Qt.black)
+        palette.setColor(Qt.QPalette.WindowText,QtCore.Qt.black)
+        palette.setColor(Qt.QPalette.Text,QtCore.Qt.green)
+        self.setPalette(palette)
