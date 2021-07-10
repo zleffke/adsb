@@ -1,0 +1,14 @@
+[Unit]
+Description=GPS Logger
+
+[Service]
+Type=idle
+User=pi
+Group=pi
+ExecStartPre=/bin/sleep 10
+ExecStart=/home/pi/github/public/GPSLogger/gpsd_logger.py
+WorkingDirectory=/home/pi/github/public/GPSLogger/
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

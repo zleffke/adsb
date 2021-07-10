@@ -1,0 +1,14 @@
+[Unit]
+Description=ADSB Logger
+
+[Service]
+Type=idle
+User=pi
+Group=pi
+ExecStartPre=/bin/sleep 10
+ExecStart=/home/pi/github/zleffke/adsb/hab_payload_v1/adsb_hab.py
+WorkingDirectory=/home/pi/github/zleffke/adsb/hab_payload_v1/
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
