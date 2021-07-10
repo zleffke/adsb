@@ -27,7 +27,7 @@
         "retry_time":5.0,
         "timeout":0.01,
         "log":{
-            "verbose":true,
+            "verbose":false,
             "level":"DEBUG"
         }
     },
@@ -37,7 +37,7 @@
         "retry_time":5.0,
         "timeout":0.01,
         "log":{
-            "verbose":true,
+            "verbose":false,
             "level":"DEBUG"
         }
     }
