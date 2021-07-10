@@ -11,7 +11,6 @@
 import os
 import sys
 import string
-import serial
 import math
 import time
 import numpy
