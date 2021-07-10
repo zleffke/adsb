@@ -48,7 +48,7 @@ if __name__ == '__main__':
                         dest="cfg_file" ,
                         action = "store",
                         type = str,
-                        default="dev_config.json" ,
+                        default="flight_config.json" ,
                         help = 'config file')
 
     args = parser.parse_args()
