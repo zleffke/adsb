@@ -1,0 +1,134 @@
+[2021-07-10T08:32:02.968484Z |  Main_Thread |     INFO] Logger Initialized
+[2021-07-10T08:32:02.970735Z |  Main_Thread |     INFO] configs: {"thread_enable": {"sbs1": true, "beast": true}, "adsb_rx": {"ip": "127.0.0.1", "sbs1": 30003, "beast": 30005}, "main": {"name": "adsb", "log": {"path": "/home/pi/log/adsb/20210710_083202", "verbose": true, "level": "DEBUG", "name": "adsb.main", "startup_ts": "20210710_083202"}}, "geolocation": {"latitude": 0.0, "longitude": 0.0, "altitude": 0.0}, "sbs1": {"thread_name": "SBS1_Thread", "name": "sbs1", "retry_time": 5.0, "timeout": 0.01, "log": {"verbose": false, "level": "DEBUG", "path": "/home/pi/log/adsb/20210710_083202", "name": "adsb.sbs1", "startup_ts": "20210710_083202"}, "main_log": "adsb.main", "adsb_rx": {"ip": "127.0.0.1", "port": 30003}}, "beast": {"thread_name": "BEAST_Thread", "name": "beast", "retry_time": 5.0, "timeout": 0.01, "log": {"verbose": false, "level": "DEBUG", "path": "/home/pi/log/adsb/20210710_083202", "name": "adsb.beast", "startup_ts": "20210710_083202"}, "main_log": "adsb.main", "adsb_rx": {"ip": "127.0.0.1", "port": 30005}}}
+[2021-07-10T08:32:02.971652Z |  Main_Thread |     INFO] Launched Main_Thread
+[2021-07-10T08:32:02.972481Z |  Main_Thread |     INFO] Thread enable: {"sbs1": true, "beast": true}
+[2021-07-10T08:32:02.973264Z |  Main_Thread |     INFO] Thread enable: {"sbs1": true, "beast": true}
+[2021-07-10T08:32:02.974012Z |  Main_Thread |     INFO] Setting up SBS1 Thread
+[2021-07-10T08:32:02.975158Z |  Main_Thread |     INFO] Initializing SBS1_Thread
+[2021-07-10T08:32:02.975995Z |  Main_Thread |     INFO] Setting up Beast Thread
+[2021-07-10T08:32:02.977102Z |  Main_Thread |     INFO] Initializing BEAST_Thread
+[2021-07-10T08:32:02.977950Z |  Main_Thread |     INFO] Launching SBS1 Thread
+[2021-07-10T08:32:02.979217Z |  SBS1_Thread |     INFO] Launched SBS1_Thread
+[2021-07-10T08:32:02.982041Z |  Main_Thread |     INFO] Launching Beast Thread
+[2021-07-10T08:32:02.982966Z |  SBS1_Thread |    DEBUG] Setup socket
+[2021-07-10T08:32:02.984127Z | BEAST_Thread |     INFO] Launched BEAST_Thread
+[2021-07-10T08:32:02.985188Z |  Main_Thread |     INFO] Successfully Launched Threads, Switching to IDLE State
+[2021-07-10T08:32:02.986763Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T08:32:02.987805Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T08:32:02.987382Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T08:32:02.985829Z |  SBS1_Thread |     INFO] Attempting to connect to sbs1: [127.0.0.1, 30003]
+[2021-07-10T08:32:02.988949Z |  SBS1_Thread |     INFO] Connected to sbs1: [127.0.0.1, 30003]
+[2021-07-10T08:32:02.989421Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T08:32:02.999587Z |  SBS1_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T08:32:03.001449Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T08:32:03.001773Z |  SBS1_Thread |     INFO] Started SBS1_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_083203.adsb.sbs1.log
+[2021-07-10T08:32:03.004452Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_083203.adsb.beast.log
+[2021-07-10T08:32:03.989763Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T08:42:04.513458Z | BEAST_Thread |    DEBUG] Unhandled Socket error
+[2021-07-10T08:42:04.514755Z | BEAST_Thread |    DEBUG] (<class 'IndexError'>, IndexError('bytearray index out of range'), <traceback object at 0x7549b8f0>)
+[2021-07-10T08:42:04.515468Z | BEAST_Thread |    DEBUG] resetting socket...
+[2021-07-10T08:42:04.516407Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: False
+[2021-07-10T08:42:04.517122Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T08:42:04.517639Z | BEAST_Thread |     INFO] Stopped Logging: /home/pi/log/adsb/20210710_083202/20210710_083203.adsb.beast.log
+[2021-07-10T08:42:04.519772Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T08:42:04.520830Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T08:42:04.522179Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T08:42:04.533030Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T08:42:04.533526Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T08:42:04.536462Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_084204.adsb.beast.log
+[2021-07-10T12:14:04.888203Z | BEAST_Thread |    DEBUG] Unhandled Socket error
+[2021-07-10T12:14:04.888680Z | BEAST_Thread |    DEBUG] (<class 'IndexError'>, IndexError('bytearray index out of range'), <traceback object at 0x7549b918>)
+[2021-07-10T12:14:04.889296Z | BEAST_Thread |    DEBUG] resetting socket...
+[2021-07-10T12:14:04.890108Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: False
+[2021-07-10T12:14:04.890541Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T12:14:04.892082Z | BEAST_Thread |     INFO] Stopped Logging: /home/pi/log/adsb/20210710_083202/20210710_084204.adsb.beast.log
+[2021-07-10T12:14:04.894101Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T12:14:04.895177Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T12:14:04.896553Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T12:14:04.907382Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T12:14:04.907842Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T12:14:04.910728Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_121404.adsb.beast.log
+[2021-07-10T12:18:04.332548Z | BEAST_Thread |    DEBUG] Unhandled Socket error
+[2021-07-10T12:18:04.333058Z | BEAST_Thread |    DEBUG] (<class 'IndexError'>, IndexError('bytearray index out of range'), <traceback object at 0x7549ba08>)
+[2021-07-10T12:18:04.333786Z | BEAST_Thread |    DEBUG] resetting socket...
+[2021-07-10T12:18:04.335160Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: False
+[2021-07-10T12:18:04.336090Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T12:18:04.337095Z | BEAST_Thread |     INFO] Stopped Logging: /home/pi/log/adsb/20210710_083202/20210710_121404.adsb.beast.log
+[2021-07-10T12:18:04.339036Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T12:18:04.340094Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T12:18:04.341490Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T12:18:04.352510Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T12:18:04.352971Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T12:18:04.355934Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_121804.adsb.beast.log
+[2021-07-10T12:19:57.212252Z | BEAST_Thread |    DEBUG] Unhandled Socket error
+[2021-07-10T12:19:57.214447Z | BEAST_Thread |    DEBUG] (<class 'IndexError'>, IndexError('bytearray index out of range'), <traceback object at 0x7549b968>)
+[2021-07-10T12:19:57.215190Z | BEAST_Thread |    DEBUG] resetting socket...
+[2021-07-10T12:19:57.215925Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: False
+[2021-07-10T12:19:57.216335Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T12:19:57.216945Z | BEAST_Thread |     INFO] Stopped Logging: /home/pi/log/adsb/20210710_083202/20210710_121804.adsb.beast.log
+[2021-07-10T12:19:57.218012Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T12:19:57.218912Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T12:19:57.219822Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T12:19:57.231376Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T12:19:57.232146Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T12:19:57.234222Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_121957.adsb.beast.log
+[2021-07-10T12:35:42.182637Z | BEAST_Thread |    DEBUG] Unhandled Socket error
+[2021-07-10T12:35:42.184334Z | BEAST_Thread |    DEBUG] (<class 'IndexError'>, IndexError('bytearray index out of range'), <traceback object at 0x7549b8f0>)
+[2021-07-10T12:35:42.185275Z | BEAST_Thread |    DEBUG] resetting socket...
+[2021-07-10T12:35:42.186093Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: False
+[2021-07-10T12:35:42.186568Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T12:35:42.187324Z | BEAST_Thread |     INFO] Stopped Logging: /home/pi/log/adsb/20210710_083202/20210710_121957.adsb.beast.log
+[2021-07-10T12:35:42.189027Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T12:35:42.189968Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T12:35:42.191026Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T12:35:42.202285Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T12:35:42.202753Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T12:35:42.205112Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_123542.adsb.beast.log
+[2021-07-10T12:46:46.563248Z | BEAST_Thread |    DEBUG] Unhandled Socket error
+[2021-07-10T12:46:46.563776Z | BEAST_Thread |    DEBUG] (<class 'IndexError'>, IndexError('bytearray index out of range'), <traceback object at 0x7549b940>)
+[2021-07-10T12:46:46.564393Z | BEAST_Thread |    DEBUG] resetting socket...
+[2021-07-10T12:46:46.565196Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: False
+[2021-07-10T12:46:46.565720Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T12:46:46.566741Z | BEAST_Thread |     INFO] Stopped Logging: /home/pi/log/adsb/20210710_083202/20210710_123542.adsb.beast.log
+[2021-07-10T12:46:46.567939Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T12:46:46.568859Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T12:46:46.570019Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T12:46:46.580929Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T12:46:46.581377Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T12:46:46.583673Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_124646.adsb.beast.log
+[2021-07-10T12:47:57.178326Z | BEAST_Thread |    DEBUG] Unhandled Socket error
+[2021-07-10T12:47:57.178807Z | BEAST_Thread |    DEBUG] (<class 'IndexError'>, IndexError('bytearray index out of range'), <traceback object at 0x7549b990>)
+[2021-07-10T12:47:57.179476Z | BEAST_Thread |    DEBUG] resetting socket...
+[2021-07-10T12:47:57.180359Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: False
+[2021-07-10T12:47:57.180817Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T12:47:57.181747Z | BEAST_Thread |     INFO] Stopped Logging: /home/pi/log/adsb/20210710_083202/20210710_124646.adsb.beast.log
+[2021-07-10T12:47:57.183471Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T12:47:57.184401Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T12:47:57.185477Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T12:47:57.196346Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T12:47:57.196790Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T12:47:57.198927Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_124757.adsb.beast.log
+[2021-07-10T12:48:12.085146Z | BEAST_Thread |    DEBUG] Unhandled Socket error
+[2021-07-10T12:48:12.085707Z | BEAST_Thread |    DEBUG] (<class 'IndexError'>, IndexError('bytearray index out of range'), <traceback object at 0x7549b918>)
+[2021-07-10T12:48:12.086346Z | BEAST_Thread |    DEBUG] resetting socket...
+[2021-07-10T12:48:12.087467Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: False
+[2021-07-10T12:48:12.088319Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T12:48:12.089278Z | BEAST_Thread |     INFO] Stopped Logging: /home/pi/log/adsb/20210710_083202/20210710_124757.adsb.beast.log
+[2021-07-10T12:48:12.091062Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T12:48:12.092360Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T12:48:12.093616Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T12:48:12.104350Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T12:48:12.104760Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T12:48:12.107459Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_124812.adsb.beast.log
+[2021-07-10T12:48:32.069721Z | BEAST_Thread |    DEBUG] Unhandled Socket error
+[2021-07-10T12:48:32.070154Z | BEAST_Thread |    DEBUG] (<class 'IndexError'>, IndexError('bytearray index out of range'), <traceback object at 0x7549b968>)
+[2021-07-10T12:48:32.070705Z | BEAST_Thread |    DEBUG] resetting socket...
+[2021-07-10T12:48:32.071480Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: False
+[2021-07-10T12:48:32.071924Z |  Main_Thread |     INFO] Changed STATE to: IDLE
+[2021-07-10T12:48:32.073379Z | BEAST_Thread |     INFO] Stopped Logging: /home/pi/log/adsb/20210710_083202/20210710_124812.adsb.beast.log
+[2021-07-10T12:48:32.074756Z | BEAST_Thread |    DEBUG] Setup socket
+[2021-07-10T12:48:32.075624Z | BEAST_Thread |     INFO] Attempting to connect to beast: [127.0.0.1, 30005]
+[2021-07-10T12:48:32.076857Z | BEAST_Thread |     INFO] Connected to beast: [127.0.0.1, 30005]
+[2021-07-10T12:48:32.087744Z | BEAST_Thread |     INFO] SBS1 Network Connection Status: True
+[2021-07-10T12:48:32.088152Z |  Main_Thread |     INFO] Changed STATE to: RUN
+[2021-07-10T12:48:32.090383Z | BEAST_Thread |     INFO] Started BEAST_Thread Data Logger: /home/pi/log/adsb/20210710_083202/20210710_124832.adsb.beast.log
